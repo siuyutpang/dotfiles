@@ -1,0 +1,52 @@
+add_newline = false
+command_timeout = 500
+
+right_format = """
+$status\
+$cmd_duration\
+"""
+
+[line_break]
+disabled = true
+
+[package]
+disabled = true
+
+[status]
+# error_symbol = "[❯](bold red)[❯](bold red)[❯](bold red)"
+# error_symbol = "[](bold red) "
+symbol = "[✘ ](bold red)"
+disabled = false
+
+[directory]
+# read_only = ""
+read_only= ""
+style = "bold blue"
+truncation_length = 1
+fish_style_pwd_dir_length = 1
+
+[character]
+success_symbol = "[❯](bold red)[❯](bold yellow)[❯](bold green)"
+error_symbol = "[❯](bold red)[❯](bold red)[❯](bold red)"
+vicmd_symbol = "[❮](bold green)[❮](bold yellow)[❮](bold red)"
+# error_symbol = "[❯](bold red)[❯](bold red)[❯](bold red)"
+# error_symbol = "[✘](bold red) "
+
+[cmd_duration]
+min_time = 30000
+
+[[battery.display]]
+threshold = 15
+
+[lua]
+disabled = true
+[python]
+disabled = true
+[nodejs]
+disabled = true
+[perl]
+disabled = true
+[java]
+disabled = true
+[rust]
+disabled = true

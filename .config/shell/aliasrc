@@ -1,0 +1,27 @@
+
+[ -x "$(command -v nvim)" ] && alias v="nvim"
+
+# sudo not required for some system commands
+for command in updatedb shutdown poweroff reboot netstat iptables; do
+	alias $command="sudo $command"
+done; unset command
+
+alias \
+    r="ranger" \
+	open="xdg-open" \
+	pc="proxychains" \
+	cs="cowsay" \
+	fl="figlet" \
+	lf="lfub"
+
+alias \
+	ll="ls -lh" \
+	exa="exa --icons --group-directories-first" \
+	ls="ls -h --color=auto --group-directories-first" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+	bat="bat --decorations=never"
+
+alias \
+	proxy="export http_proxy=127.0.0.1:9981; export https_proxy=127.0.0.1:9981" \
+	unproxy="unset http_proxy; unset https_proxy"

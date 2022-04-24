@@ -1,0 +1,217 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+highlight      = #b294bb
+background     = #1d1f21
+background-alt = #373B41
+foreground     = #c5c8c6
+secondary      = #8ABEB7
+alert          = #A54242
+disabled       = #707880
+primary        = #de945f
+selection      = #373b41
+comment        = #969896
+red            = #cc6666
+orange         = #de935f
+yellow         = #f0c674
+green          = #b5bd68
+aqua           = #8abeb7
+blue           = #81a2be
+purple         = #b294bb
+
+[bar/main]
+width                = 100%
+height               = 2.5%
+radius               = 0
+offset-y             = 0
+background           = ${colors.background}
+foreground           = ${colors.foreground}
+line-size            = 3
+border-size          = 0
+border-color         = #00000000
+padding-left         = 0
+padding-right        = 2
+module-margin        = 1
+# separator            = 
+separator            = 
+separator-foreground = ${colors.disabled}
+font-0               = Fira Code Nerd Font:pixelsize=13;2
+modules-left         = xworkspaces xwindow
+modules-right        = cpu memory network-flow-up network-flow-down date time
+cursor-click         = pointer
+cursor-scroll        = ns-resize
+enable-ipc           = true
+underline-size = 1
+tray-position = right
+tray-padding = 2
+; wm-restack = generic
+;wm-restack = bspwm
+wm-restack = i3
+; override-redirect = true
+
+[module/xworkspaces]
+type                     = internal/xworkspaces
+label-active             = %name%
+label-active-background  = ${colors.background-alt}
+label-active-underline   = ${colors.green}
+label-active-padding     = 2
+label-occupied           = %name%
+label-occupied-padding   = 2
+label-occupied-underline = ${colors.yellow}
+label-urgent             = %name%
+label-urgent-background  = ${colors.red}
+label-urgent-padding     = 2
+label-empty              = %name%
+label-empty-foreground   = ${colors.disabled}
+label-empty-padding      = 2
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %name%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-occupied = %name%
+label-occupied-padding = 2
+
+label-urgent = %name%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %name%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+
+; Separator in between workspaces
+label-separator = |
+
+[module/xwindow]
+type             = internal/xwindow
+label            = %title:0:60:...%
+label-foreground = ${colors.green}
+label-underline  = ${colors.green}
+
+[module/filesystem]
+type                       = internal/fs
+interval                   = 25
+mount-0                    = /
+label-mounted              = %{F#F0C674}%mountpoint%%{F-} %percentage_used%%
+label-unmounted            = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.disabled}
+
+[module/pulseaudio]
+type                            = internal/pulseaudio
+format-volume-prefix            = "VOL "
+format-volume-prefix-foreground = ${colors.primary}
+format-volume                   = <label-volume>
+label-volume                    = %percentage%%
+label-muted                     = muted
+label-muted-foreground          = ${colors.disabled}
+
+[module/xkeyboard]
+type                       = internal/xkeyboard
+blacklist-0                = num lock
+label-layout               = %layout%
+label-layout-foreground    = ${colors.primary}
+label-indicator-padding    = 2
+label-indicator-margin     = 1
+label-indicator-foreground = ${colors.background}
+label-indicator-background = ${colors.secondary}
+
+[module/cpu]
+type                     = internal/cpu
+interval                 = 0.5
+format-prefix            = " "
+format-prefix-foreground = ${colors.blue}
+format-prefix-underline  = ${colors.blue}
+label                    = %percentage:2%%
+label-foreground         = ${colors.blue}
+label-underline          = ${colors.blue}
+
+[module/memory]
+type                     = internal/memory
+interval                 = 0.5
+format-prefix            = " "
+format-prefix-foreground = ${colors.aqua}
+format-prefix-underline  = ${colors.aqua}
+label                    = %percentage_used:2%%(%mb_used%)
+label-foreground         = ${colors.aqua}
+label-underline          = ${colors.aqua}
+
+[module/network-flow-up]
+type                       = internal/network
+interface                  = eth0
+interval                   = 0.5
+label-connected            = " %upspeed%  "
+label-connected-foreground = ${colors.yellow}
+label-connected-underline  = ${colors.yellow}
+label-disconnected         = disconnected
+
+[module/network-flow-down]
+type                       = internal/network
+interface                  = eth0
+interval                   = 0.5
+label-connected            = " %downspeed%"
+label-connected-foreground = ${colors.yellow}
+label-connected-underline  = ${colors.yellow}
+label-disconnected         = disconnected
+
+; [network-base]
+; type                = internal/network
+; interval            = 5
+; format-connected    = <label-connected>
+; format-disconnected = <label-disconnected>
+; label-disconnected  = %{F#F0C674}%ifname%%{F#707880} disconnected
+; 
+; [module/wlan]
+; inherit         = network-base
+; interface       = <name>
+; interface-type  = wireless
+; label-connected = %{F#F0C674}%ifname%%{F-} %essid% %local_ip%
+; 
+; [module/eth]
+; inherit         = network-base
+; interface-type  = wired
+; interface       = ens33
+; label-connected = %{F#F0C674}%ifname%%{F-} %local_ip%
+
+[module/date]
+type             = internal/date
+interval         = 1
+date             =  %Y/%m/%d
+label            = %date%
+label-foreground = ${colors.purple}
+label-underline  = ${colors.purple}
+
+[module/time]
+type             = internal/date
+interval         = 1
+date             =  %H:%M:%S
+label            = %date%
+label-foreground = ${colors.purple}
+label-underline  = ${colors.purple}
+
+
+[settings]
+screenchange-reload = true
+pseudo-transparency = true
+
+; vim:ft=dosini

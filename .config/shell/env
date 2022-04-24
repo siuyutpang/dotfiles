@@ -1,0 +1,19 @@
+# fzf 
+export FZF_DEFAULT_COMMAND='fd --hidden --type f'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+source ~/.config/zsh/functions/fzf-key-bindings.zsh
+source ~/.config/zsh/functions/fzf-completion.zsh
+
+# environment varible for pyenv
+export PYENV_ROOT="/opt/pyenv"
+export PATH="/opt/pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+
+
+# environment varible for nvm
+export NVM_DIR="/opt/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
