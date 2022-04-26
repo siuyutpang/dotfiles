@@ -1,10 +1,16 @@
-add_newline = false
-command_timeout = 500
+format = """
+$directory\
+$git_branch\
+$git_status\
+$character
+"""
 
 right_format = """
 $status\
 $cmd_duration\
 """
+
+add_newline = false
 
 [line_break]
 disabled = true
@@ -37,16 +43,3 @@ min_time = 30000
 
 [[battery.display]]
 threshold = 15
-
-[lua]
-disabled = true
-[python]
-disabled = true
-[nodejs]
-disabled = true
-[perl]
-disabled = true
-[java]
-disabled = true
-[rust]
-disabled = true
