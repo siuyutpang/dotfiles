@@ -1,0 +1,11 @@
+{
+ :verbose         true
+ :show-original   false
+ :indent          2
+ :view            true
+ :hl              "en"
+ :tl              "zh"
+ :engine          "google"
+ :proxy           "localhost:9981"
+ :user-agent      "Mozilla/5.0 (X11; Linux x86_64; rv:33.0) Gecko/20100101 Firefox/33.0"
+}

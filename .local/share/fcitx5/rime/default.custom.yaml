@@ -1,0 +1,37 @@
+patch:
+  schema_list: 
+    - schema: rime_ice
+  style:
+    horizontal: true
+    font_face: "Noto Sans CJK SC"
+  menu:
+    page_size: 10
+  switcher:
+    hotkeys:
+      - Control+grave
+  ascii_composer:
+    good_old_caps_lock: true
+    switch_key:
+      Caps_Lock: clear
+      Shift_L: commit_code # note: 如果要使其生效，记得关闭fcitx5中的Shift功能
+      Shift_R: noop
+      Control_L: noop
+      Control_R: noop
+
+  key_binder:
+    bindings:
+      # Tab / Shift+Tab 切换光标至下/上一个拼音
+      # - { when: composing, accept: Shift+Tab, send: Shift+Left }
+      # - { when: composing, accept: Tab, send: Shift+Right }
+
+      # Option/Alt + ←/→ 切换光标至下/上一个拼音
+      - { when: composing, accept: Alt+Left, send: Shift+Left }
+      - { when: composing, accept: Alt+Right, send: Shift+Right }
+
+      # 翻页 , .
+      # - { when: paging, accept: comma, send: Page_Up }
+      # - { when: has_menu, accept: period, send: Page_Down }
+
+      # 翻页 [ ]
+      - { when: paging, accept: bracketleft, send: Page_Up }
+      - { when: has_menu, accept: bracketright, send: Page_Down }

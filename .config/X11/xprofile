@@ -1,0 +1,12 @@
+#!/bin/sh
+
+xrandr -s 1920x1080 &
+setbg &
+vmware-user-suid-wrapper &
+setxkbmap -option caps:escape &
+
+autostart="picom fcitx5 sxhkd unclutter slstatus"
+
+for program in $autostart; do
+	pidof -s "$program" || "$program" &
+done >/dev/null 2>&1

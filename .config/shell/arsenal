@@ -1,0 +1,32 @@
+#!/bin/sh
+
+function mkcd() {
+    # mkdir -p $@ && cd $_
+    mkdir -p $@ && cd ${@:$#}
+}
+
+function takegit() {
+    git clone --depth 1 "$1"
+    cd $(basename $1 .git)
+    # cd "$(basename ${1%%.git})"
+    # cd $(echo "$1" | sed 's#^.*/\([^/].*\).git$#\1#g')
+}
+
+function cdtmp() {
+    cd $(mktemp -d /tmp/demo-XXXXX)
+}
+
+function history_stats() {
+    if [ -z "$1" ]; then
+        entries=10
+    else
+        entries="$1"
+    fi
+    fc -l 1 \
+        | awk '{ CMD[$2]++; } END { for (a in CMD) print CMD[a] " " CMD[a]*100/NR "% " a }' \
+        | grep -v "./" \
+        | column -c3 -s " " -t \
+        | sort -nr \
+        | nl \
+        | head -n "$entries"
+}

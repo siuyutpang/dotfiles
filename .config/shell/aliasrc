@@ -1,0 +1,61 @@
+#!/bin/sh
+
+[ -x "$(command -v nvim)" ] && alias v="nvim" vim="nvim"
+
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+
+# sudo not required for some system commands
+for command in updatedb shutdown poweroff reboot netstat iptables ipset; do
+    alias $command="sudo $command"
+done; unset command
+
+# Verbosity and settings that you pretty much just always are going to want.
+alias \
+    cp="cp -iv" \
+    mv="mv -iv" \
+    rm="rm -vI" \
+    bc="bc -ql" \
+    mkd="mkdir -pv" \
+    ffmpeg="ffmpeg -hide_banner" \
+    ffprobe="ffprobe -hide_banner" \
+
+# Colorize commands when possible.
+alias \
+    ls="ls -hN --color=auto --group-directories-first" \
+    grep="grep --color=auto --exclude-dir={.git,node_modules,dist}" \
+    diff="diff --color=auto" \
+    ip="ip -color=auto" \
+    tree="tree -C"
+
+# These common commands are just too long! Abbreviate them.
+alias \
+    r="ranger" \
+    open="xdg-open" \
+    trans="trans -no-warn" \
+    pc="proxychains -q" \
+    cs="cowsay" \
+    fl="figlet" \
+    py="python" \
+    ipy="ipython" \
+    ll="ls -l" \
+    lsd="ls -d */" \
+    ssh="TERM=xterm-256color ssh" \
+    mycli="mycli --myclirc ~/.config/mycli/myclirc" \
+    yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"' \
+    exa="exa --icons --group-directories-first" \
+    proxy="export http_proxy=127.0.0.1:9981 https_proxy=127.0.0.1:9981" \
+    unproxy="unset http_proxy https_proxy" \
+    dfm='/usr/bin/git --git-dir="$HOME/Public/dotfiles/" --work-tree="$HOME"'
+
+# rsync
+alias \
+    cpr="rsync -avzhP" \
+    mvr="rsync -avzhP --remove-source-files" \
+    updr="rsync -avzhP -u" \
+    syncr="rsync -avzhP -u --delete"
+
+# swallow stuff
+alias \
+    mpv="swallow mpv" \
+    zeal="swallow zeal" \
+    zathura="swallow zathura"

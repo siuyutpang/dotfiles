@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ -f "$HOME/.config/X11/xprofile" ]; then
+    . "$HOME/.config/X11/xprofile"
+else
+    . "$HOME/.xprofile"
+fi
+
+exec dwm
+# ssh-agent dwm

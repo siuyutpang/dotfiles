@@ -1,0 +1,45 @@
+format = """
+$directory\
+$git_branch\
+$git_status\
+$character"""
+
+right_format = """
+$status\
+$cmd_duration\
+$battery\
+"""
+
+add_newline = false
+
+[line_break]
+disabled = true
+
+[package]
+disabled = true
+
+[status]
+symbol = "[🚨 ](bold red)"
+disabled = false
+
+[directory]
+read_only = "🔒 "
+home_symbol = "~"
+style = "bold blue"
+truncation_length = 1
+fish_style_pwd_dir_length = 1
+format = "[$read_only]($read_only_style)[$path]($style) "
+
+[character]
+error_symbol = "[❯](bold red)[❯](bold red)[❯](bold red)"
+success_symbol = "[❯](bold red)[❯](bold yellow)[❯](bold green)"
+vicmd_symbol = "[❮](bold green)[❮](bold yellow)[❮](bold red)"
+
+[cmd_duration]
+min_time = 30000
+format = "⌛ [$duration]($style) "
+
+[[battery.display]]
+threshold = 15
+charging_symbol = "🔋 "
+discharging_symbol = "🪫 "

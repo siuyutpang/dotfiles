@@ -1,0 +1,34 @@
+$include /etc/inputrc
+set editing-mode vi
+$if mode=vi
+
+set show-all-if-ambiguous on
+set completion-ignore-case on
+set colored-completion-prefix On
+set menu-complete-display-prefix On
+
+set enable-bracketed-paste off
+
+set show-mode-in-prompt on
+set vi-ins-mode-string \1\e[6 q\2
+set vi-cmd-mode-string \1\e[2 q\2
+
+TAB:    menu-complete
+"\e[Z": menu-complete-backward
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+set keymap vi-command
+# these are for vi-command mode
+Control-l: clear-screen
+Control-a: beginning-of-line
+
+set keymap vi-insert
+# these are for vi-insert mode
+Control-l: clear-screen
+Control-a: beginning-of-line
+Control-k: kill-line
+Control-u: backward-kill-line
+Control-e: edit-and-execute-command
+
+$endif
