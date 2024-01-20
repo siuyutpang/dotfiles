@@ -4,8 +4,8 @@ export KEYTIMEOUT=1
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
-bindkey -M vicmd '^e' edit-command-line
+bindkey '^v' edit-command-line
+bindkey -M vicmd '^v' edit-command-line
 
 bindkey '^k' kill-line
 bindkey '^u' backward-kill-line
@@ -19,6 +19,7 @@ bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
 
 bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
 bindkey '^q' push-line-or-edit    # eq: Ctrl + U then Ctrl + Y in emacs mode
 
 bindkey '^[[1;5C' forward-word
