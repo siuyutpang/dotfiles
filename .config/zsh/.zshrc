@@ -1,5 +1,7 @@
 # Sy's config for the Zoomer Shell
 
+source ~/.local/share/znap/zsh-snap/znap.zsh
+
 # Load all of the lib files in $ZDOTDIR/lib that end in .zsh
 if [ -d ~/.config/zsh/lib ]; then
     for lib_file in ~/.config/zsh/lib/*.zsh(N); do
@@ -22,9 +24,8 @@ fi
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/environ" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/environ"
 
 # Load awesome zsh plugins
-source /usr/share/doc/pkgfile/command-not-found.zsh 2>/dev/null
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+znap source zsh-users/zsh-autosuggestions
+znap source zdharma-continuum/fast-syntax-highlighting
 
 # Load zsh-specific stuff
 source ~/.config/zsh/setup

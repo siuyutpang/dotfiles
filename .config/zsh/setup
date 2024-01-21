@@ -9,15 +9,15 @@ source /opt/miniconda/etc/profile.d/conda.sh
 
 # atuin
 export ATUIN_NOBIND="true"
-eval "$(atuin init zsh)"
+znap eval atuin 'atuin init zsh'
 
 bindkey '^[r' _atuin_search_widget
 
 # zoxide
-eval "$(zoxide init zsh)"
+znap eval zoxide 'zoxide init zsh'
 
 # direnv
-eval "$(direnv hook zsh)"
+znap eval direnv 'direnv hook zsh'
 
 # asdf
 export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"
@@ -27,7 +27,8 @@ export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME}/asdf/asdfrc"
 # fnm
 export PATH="${XDG_DATA_HOME}/npm/bin:$PATH"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
-eval "$(fnm env --use-on-cd)"
+znap eval fnm 'fnm env --use-on-cd'
 
 # starship
-eval "$(starship init zsh)"
+znap eval starship 'starship init zsh --print-full-init'
+znap prompt
