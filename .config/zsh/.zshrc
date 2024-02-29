@@ -24,6 +24,7 @@ fi
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/environ" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/environ"
 
 # Load awesome zsh plugins
+znap source jeffreytse/zsh-vi-mode
 znap source zsh-users/zsh-autosuggestions
 znap source zdharma-continuum/fast-syntax-highlighting
 
