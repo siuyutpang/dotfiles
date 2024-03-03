@@ -24,11 +24,6 @@ export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"
 export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME}/asdf/asdfrc"
 . /opt/asdf-vm/asdf.sh
 
-# fnm
-export PATH="${XDG_DATA_HOME}/npm/bin:$PATH"
-export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
-znap eval fnm 'fnm env --use-on-cd'
-
 # starship
 znap eval starship 'starship init zsh --print-full-init'
 znap prompt

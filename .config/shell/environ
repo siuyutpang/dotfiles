@@ -15,3 +15,7 @@ export FZF_CTRL_T_COMMAND='fd -t f -H -L -E={.git,.idea,.vscode,node_modules,dis
 export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range=:50 {}'"
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window up:3:hidden:wrap"
 export FZF_ALT_C_OPTS="--preview 'tree -C --dirsfirst {}'"
+
+# node
+export PATH="${XDG_DATA_HOME}/npm/bin:$PATH"
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
