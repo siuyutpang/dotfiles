@@ -28,3 +28,5 @@ export PS1="\[\e[1;31m\][\[\e[1;33m\]\u\[\e[1;32m\]@\[\e[1;34m\]\h \[\e[1;35m\]\
 # load bash-specific stuff
 source /usr/share/fzf/completion.bash
 source /usr/share/fzf/key-bindings.bash
+source /usr/share/bash-completion/completions/git
+__git_complete dfm __git_main
