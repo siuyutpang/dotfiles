@@ -47,12 +47,12 @@ alias \
     unproxy="unset http_proxy https_proxy" \
     dfm='/usr/bin/git --git-dir="$HOME/Public/dotfiles/" --work-tree="$HOME"'
 
-# rsync
+# rsync related
 alias \
-    cpr="rsync -avzhP" \
-    mvr="rsync -avzhP --remove-source-files" \
-    updr="rsync -avzhP -u" \
-    syncr="rsync -avzhP -u --delete"
+    rsync-cp="rsync -avzhP" \
+    rsync-mv="rsync -avzhP --remove-source-files" \
+    rsync-update="rsync -avzhP -u" \
+    rsync-sync="rsync -avzhP -u --delete"
 
 # swallow stuff
 alias \
