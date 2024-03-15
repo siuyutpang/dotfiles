@@ -45,7 +45,8 @@ alias \
     exa="exa --icons --group-directories-first" \
     proxy="export http_proxy=127.0.0.1:9981 https_proxy=127.0.0.1:9981" \
     unproxy="unset http_proxy https_proxy" \
-    dfm='/usr/bin/git --git-dir="$HOME/Public/dotfiles/" --work-tree="$HOME"'
+    dfm='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"' \
+    tb="nc termbin.com 9999"
 
 # rsync related
 alias \
