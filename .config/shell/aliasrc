@@ -9,44 +9,48 @@ for command in updatedb shutdown poweroff reboot netstat iptables ipset; do
     alias $command="sudo $command"
 done; unset command
 
-# Verbosity and settings that you pretty much just always are going to want.
+# quiet mode
+alias \
+    bc="bc -ql" \
+    pc="proxychains -q" \
+    trans="trans -no-warn" \
+    newsboat="newsboat -q" \
+    ffmpeg="ffmpeg -hide_banner" \
+    ffprobe="ffprobe -hide_banner"
+
+# verbose mode
 alias \
     cp="cp -iv" \
     mv="mv -iv" \
     rm="rm -vI" \
-    bc="bc -ql" \
-    mkd="mkdir -pv" \
-    ffmpeg="ffmpeg -hide_banner" \
-    ffprobe="ffprobe -hide_banner" \
+    mkd="mkdir -pv"
 
-# Colorize commands when possible.
+# color output
 alias \
-    ls="ls -hN --color=auto --group-directories-first" \
-    grep="grep --color=auto --exclude-dir={.git,node_modules,dist}" \
-    diff="diff --color=auto" \
+    tree="tree -C" \
     ip="ip -color=auto" \
-    tree="tree -C"
+    diff="diff --color=auto" \
+    ls="ls -hNv --color=auto --group-directories-first" \
+    grep="grep --color=auto --exclude-dir={.git,node_modules,dist}"
 
-# These common commands are just too long! Abbreviate them.
+# abbreviate long commands
 alias \
     r="ranger" \
     open="xdg-open" \
-    trans="trans -no-warn" \
-    pc="proxychains -q" \
     cs="cowsay" \
     fl="figlet" \
     py="python" \
     ipy="ipython" \
     ll="ls -l" \
     lsd="ls -d */" \
+    tb="nc termbin.com 9999" \
     ssh="TERM=xterm-256color ssh" \
     mycli="mycli --myclirc ~/.config/mycli/myclirc" \
     yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"' \
     exa="exa --icons --group-directories-first" \
     proxy="export http_proxy=127.0.0.1:9981 https_proxy=127.0.0.1:9981" \
     unproxy="unset http_proxy https_proxy" \
-    dfm='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"' \
-    tb="nc termbin.com 9999"
+    dfm='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 
 # rsync related
 alias \
