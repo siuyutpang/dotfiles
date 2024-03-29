@@ -1,0 +1,3 @@
+GO111MODULE=on
+GOPATH=/home/sy/Repos/go
+GOPROXY=https://goproxy.cn,direct
