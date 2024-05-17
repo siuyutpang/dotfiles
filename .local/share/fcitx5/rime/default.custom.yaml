@@ -1,8 +1,9 @@
 patch:
-  schema_list: 
+  schema_list:
     - schema: rime_ice
   style:
     horizontal: true
+    inline_preedit: false
     font_face: "Noto Sans CJK SC"
   menu:
     page_size: 10
