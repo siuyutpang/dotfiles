@@ -4,9 +4,6 @@
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
-# miniconda
-source /opt/miniconda/etc/profile.d/conda.sh
-
 # atuin
 export ATUIN_NOBIND="true"
 znap eval atuin 'atuin init zsh'
@@ -18,11 +15,6 @@ znap eval zoxide 'zoxide init zsh'
 
 # direnv
 znap eval direnv 'direnv hook zsh'
-
-# asdf
-export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"
-export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME}/asdf/asdfrc"
-. /opt/asdf-vm/asdf.sh
 
 # starship
 znap eval starship 'starship init zsh --print-full-init'
