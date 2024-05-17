@@ -1,8 +1,7 @@
 #!/bin/sh
 
 # fzf
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
+znap eval fzf 'fzf --zsh'
 
 # atuin
 export ATUIN_NOBIND="true"
