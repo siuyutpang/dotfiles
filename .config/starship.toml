@@ -1,4 +1,7 @@
 format = """
+$conda\
+$python\
+$nix_shell\
 $directory\
 $git_branch\
 $git_status\
@@ -19,7 +22,7 @@ disabled = true
 disabled = true
 
 [status]
-symbol = "[🚨 ](bold red)"
+symbol = "[● ](bold red)"
 disabled = false
 
 [directory]
@@ -29,6 +32,21 @@ style = "bold blue"
 truncation_length = 1
 fish_style_pwd_dir_length = 1
 format = "[$read_only]($read_only_style)[$path]($style) "
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+
+[git_status]
+untracked = "🛤️  ×${count}"
+modified = "📝 x${count} "
+deleted = "🗑️ ×${count} "
+staged = "🗃️  ×${count} "
+stashed = "📦 "
+behind = "🐢 ×${count}"
+ahead = "🏎️ 💨 ×${count}"
+conflicted = "⚔️ "
+style = "bright-white"
+format = "$all_status$ahead_behind"
 
 [character]
 error_symbol = "[❯](bold red)[❯](bold red)[❯](bold red)"
@@ -43,3 +61,15 @@ format = "⌛ [$duration]($style) "
 threshold = 15
 charging_symbol = "🔋 "
 discharging_symbol = "🪫 "
+
+[python]
+pyenv_version_name = true
+style='white bold'
+format='[(${version} )(\($virtualenv\) )]($style)'
+
+[nix_shell]
+heuristic = true
+format = '[❄️ ](bold blue) '
+
+[conda]
+format = '[$symbol$environment](dimmed green) '
