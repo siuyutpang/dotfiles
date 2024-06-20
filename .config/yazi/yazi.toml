@@ -1,0 +1,26 @@
+[manager]
+sort_by="natural"
+show_hidden = true
+linemode = "size"
+
+[preview]
+tab_size   = 2
+max_width  = 1000
+max_height = 1000
+
+[opener]
+edit = [
+	{ run = 'nvim "$@"', block = true },
+]
+play = [
+	{ run = 'mpv --wid=$(xdotool getactivewindow) -- "$@"', orphan = true, for = "unix" },
+]
+open = [
+	{ run = 'xdg-open "$@"', desc = "Open" },
+]
+
+[open]
+rules = [
+	{ mime = "text/*", use = "edit" },
+	{ mime = "video/*", use = "play" },
+]
