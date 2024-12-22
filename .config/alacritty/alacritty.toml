@@ -1,3 +1,4 @@
+[general]
 import = ["~/.config/alacritty/themes/colorscheme.toml"]
 
 live_config_reload = true
@@ -65,7 +66,7 @@ multiplier = 3
 save_to_clipboard = true
 semantic_escape_chars = ",│`|/\"' ()[]{}<>\t"
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/zsh"
 
 [window]
