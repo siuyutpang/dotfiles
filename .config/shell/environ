@@ -2,6 +2,8 @@
 
 export GPG_TTY=$(tty)
 
+export SUDO_PROMPT="[sudo] password for $(whoami): 🔐 "
+
 # fzf
 export FZF_COMPLETION_TRIGGER='\'
 export FZF_DEFAULT_COMMAND='fd --hidden --exclude .git --follow --type f'
