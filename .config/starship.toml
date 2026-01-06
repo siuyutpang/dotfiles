@@ -70,7 +70,7 @@ format='[(${version} )(\($virtualenv\) )]($style)'
 
 [nix_shell]
 heuristic = true
-format = '[❄️ ](bold blue) '
+format = '[⛄](bold blue) '
 
 [conda]
 format = '[$symbol$environment](dimmed green) '
