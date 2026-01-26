@@ -22,7 +22,7 @@ function cdtmp() {
 }
 
 function cddemo() {
-    cd $(fd -t d demo /tmp | fzf --preview 'tree -a -L 1 -C --dirsfirst {}')
+    cd $(fd -t d '^demo' /tmp | fzf --preview 'tree -a -L 1 -C --dirsfirst {}')
 }
 
 function fh() {
