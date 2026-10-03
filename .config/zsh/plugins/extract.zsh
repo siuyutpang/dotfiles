@@ -11,11 +11,11 @@ EOF
     for file in "$@"; do
         if [ -f "$file" ]; then
             case "$file" in
-                *.tar)              tar -xvf "$file" ;;
-                *.txz|*.tar.xz)     tar -xvJf "$file" ;;
-                *.tgz|*.tar.gz)     tar -xvzf "$file" ;;
-                *.tbz2|*.tar.bz2)   tar -xvjf "$file" ;;
-                *.tzst|*.tar.zst)   tar --zstd -xvf "$file" ;;
+                *.tar)              tar -xvf "$file" --one-top-level ;;
+                *.txz|*.tar.xz)     tar --xz    -xvf "$file" --one-top-level ;;
+                *.tgz|*.tar.gz)     tar --gzip  -xvf "$file" --one-top-level ;;
+                *.tbz2|*.tar.bz2)   tar --bzip2 -xvf "$file" --one-top-level ;;
+                *.tzst|*.tar.zst)   tar --zstd  -xvf "$file" --one-top-level ;;
                 *.xz)               unxz "$file" ;;
                 *.gz)               gunzip "$file" ;;
                 *.bz2)              bunzip2 "$file" ;;
@@ -28,8 +28,8 @@ EOF
                 *.deb)
                                     command mkdir -p "data" "control"
                                     ar x "$file" > /dev/null
-                                    builtin cd control; extract ../control.tar.*
-                                    builtin cd ../data; extract ../data.tar.*
+                                    builtin cd control; tar -xvf ../control.tar.*
+                                    builtin cd ../data; tar -xvf ../data.tar.*
                                     builtin cd ..; command rm *.tar.* debian-binary ;;
                 *)                  echo "'$file': unrecognized file compression." ;;
             esac
