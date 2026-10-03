@@ -1,5 +1,8 @@
 # Sy's config for the Zoomer Shell
 
+# 关掉 znap 的后台 auto-compile（会往配置目录里生成 *.zwc，对本配置零收益）
+zstyle ':znap:*' auto-compile no
+
 source ~/.local/share/znap/zsh-snap/znap.zsh
 
 # Load all of the lib files in $ZDOTDIR/lib that end in .zsh
