@@ -1,20 +1,13 @@
-#!/bin/sh
+# vim: set ft=zsh:
+# Shell integrations
 
-# fzf
-znap eval fzf 'fzf --zsh'
+source <(fzf --zsh)
 
-# atuin
-export ATUIN_NOBIND="true"
-znap eval atuin 'atuin init zsh'
+export ATUIN_NOBIND="true"        # don't let atuin grab ^r; fzf-history-widget owns it
+source <(atuin init zsh)
 
-bindkey '^[r' _atuin_search_widget
+source <(zoxide init zsh)
+source <(direnv hook zsh)
 
-# zoxide
-znap eval zoxide 'zoxide init zsh'
-
-# direnv
-znap eval direnv 'direnv hook zsh'
-
-# starship
-znap eval starship 'starship init zsh --print-full-init'
+source <(starship init zsh --print-full-init)
 znap prompt
