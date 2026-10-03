@@ -1,7 +1,9 @@
 $include /etc/inputrc
 set editing-mode vi
+set keyseq-timeout 50
 $if mode=vi
 
+set match-hidden-files on
 set show-all-if-ambiguous on
 set completion-ignore-case on
 set colored-completion-prefix On
@@ -15,8 +17,12 @@ set vi-cmd-mode-string \1\e[2 q\2
 
 TAB:    menu-complete
 "\e[Z": menu-complete-backward
+
 "\e[A": history-search-backward
 "\e[B": history-search-forward
+
+"\e[C": forward-char
+"\e[D": backward-char
 
 set keymap vi-command
 # these are for vi-command mode
@@ -27,8 +33,9 @@ set keymap vi-insert
 # these are for vi-insert mode
 Control-l: clear-screen
 Control-a: beginning-of-line
+Control-e: end-of-line
 Control-k: kill-line
 Control-u: backward-kill-line
-Control-e: edit-and-execute-command
+Control-v: edit-and-execute-command
 
 $endif
