@@ -23,7 +23,7 @@ disabled = true
 disabled = true
 
 [status]
-symbol = "[● ](bold red)"
+symbol = "[❌ ](bold red)"
 disabled = false
 
 [directory]
@@ -38,10 +38,10 @@ format = "[$read_only]($read_only_style)[$path]($style) "
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
 
 [git_status]
-untracked = "🛤️ ×${count} "
+untracked = "❓ ×${count} "
 modified = "📝 x${count} "
 deleted = "🗑️ ×${count} "
-staged = "🗃️ ×${count} "
+staged = "🟢 ×${count} "
 stashed = "📦 "
 behind = "🐢 ×${count}"
 ahead = "🏎️ 💨 ×${count}"
