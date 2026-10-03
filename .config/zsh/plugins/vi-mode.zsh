@@ -1,21 +1,8 @@
-# Change cursor shape for different vi modes.
-function zle-keymap-select () {
-    case $KEYMAP in
-        vicmd) echo -ne '\e[2 q';;      # block
-        viins|main) echo -ne '\e[6 q';; # beam
-    esac
+# zsh-vi-mode 会覆盖其他插件（fzf 等）的键位，用官方 zvm_after_init 钩子抢回来。
+function zvm_after_init() {
+    bindkey -M viins '^R' fzf-history-widget                # fzf 历史搜索
+    bindkey -M viins '^P' history-beginning-search-backward-end
+    bindkey -M viins '^N' history-beginning-search-forward-end
+    bindkey -M viins '^S' self-insert
+    bindkey -M viins '^W' vi-backward-kill-word
 }
-zle -N zle-keymap-select
-
-# zle-line-init() {
-#     zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-#     echo -ne "\e[6 q"
-# }
-# zle -N zle-line-init
-# echo -ne '\e[6 q' # Use beam shape cursor on startup.
-# preexec() { echo -ne '\e[6 q' ;} # Use beam shape cursor for each new prompt.
-#
-# _fix_cursor() {
-#   echo -ne '\e[6 q'
-# }
-# precmd_functions+=(_fix_cursor)
