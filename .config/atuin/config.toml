@@ -138,3 +138,15 @@ enter_accept = true
 ## keep logs under XDG state instead.
 [logs]
 dir = "~/.local/state/atuin/logs"
+
+## Only affects `atuin stats`; what gets recorded is controlled elsewhere.
+[stats]
+## Bare navigation and TUI launches would otherwise dominate the report.
+ignored_commands = [
+  "cd",
+  "ls",
+  "pwd",
+  "z",
+  "v",
+  "yy",
+]
