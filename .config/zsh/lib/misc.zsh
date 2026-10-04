@@ -1,5 +1,3 @@
-autoload -U colors && colors	   # Load colors
-
 stty stop undef		               # Disable ctrl-s to freeze terminal.
 zle_highlight=('paste:none')       # disable highlighting pasted text
 
