@@ -89,10 +89,19 @@ invert = true
 ## with ^ or end with $, they'll match anywhere in the command.
 ## For details on the supported regular expression syntax, see
 ## https://docs.rs/regex/latest/regex/#syntax
-# history_filter = [
-#   "^secret-cmd",
-#   "^innocuous-cmd .*--secret=.+"
-# ]
+history_filter = [
+  # bare navigation, carries no signal
+  '^cd( \.\.)?$',
+  '^ls( |$)',
+  '^ll( |$)',
+  '^clear$',
+  '^exit$',
+  '^pwd$',
+
+  # bare editor / file-manager launches; keep those with arguments
+  '^(v|vim|nvim)$',
+  '^(ranger|yazi)$',
+]
 
 ## prevent commands run with cwd matching any of these regexes from being written
 ## to history. Note that these regular expressions are unanchored, i.e. if they don't
