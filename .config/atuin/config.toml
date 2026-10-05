@@ -92,8 +92,8 @@ invert = true
 history_filter = [
   # bare navigation, carries no signal
   '^cd( \.\.)?$',
-  '^ls( |$)',
-  '^ll( |$)',
+  '^ls\s*$',        # bare `ls` only; `ls -la` is worth keeping
+  '^ll\s*$',
   '^clear$',
   '^exit$',
   '^pwd$',
