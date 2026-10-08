@@ -16,7 +16,7 @@ export FZF_DEFAULT_OPTS=" \
 "
 export FZF_CTRL_T_COMMAND='fd -t f -H -L -E={.git,.idea,.vscode,node_modules,dist} --strip-cwd-prefix'
 export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range=:50 {}'"
-export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window up:3:hidden:wrap"
+export FZF_CTRL_R_OPTS="--min-height=8 --preview 'echo {}' --preview-window up:3:hidden:wrap"
 export FZF_ALT_C_OPTS="--preview 'tree -C --dirsfirst {}'"
 
 # node
