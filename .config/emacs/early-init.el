@@ -1,25 +1,32 @@
 ;;; early-init.el -*- lexical-binding: t; -*-
 
+;; 按 XDG 目录约定，将 package.el 安装的包放在数据目录。
+(setq package-user-dir
+      (expand-file-name
+       "emacs/elpa/"
+       (or (getenv "XDG_DATA_HOME")
+           (expand-file-name "~/.local/share/"))))
+
+;; 将 Emacs 原生编译生成的 .eln 缓存放到 XDG cache 目录。
+(startup-redirect-eln-cache
+ (expand-file-name
+  "emacs/eln-cache/"
+  (or (getenv "XDG_CACHE_HOME")
+      (expand-file-name "~/.cache/"))))
+
 ;; ---- 启动画面 ----
 (setq inhibit-startup-screen t)     ; 不显示 GNU 欢迎页（splash screen）
 
 ;; ---- 界面元素 ----
 (tool-bar-mode -1)                  ; 关工具栏（那一排图标按钮）
 (scroll-bar-mode -1)                ; 关滚动条
-(menu-bar-mode -1)                ; 菜单栏：学键位阶段建议先留着
+(menu-bar-mode -1)                  ; 关闭菜单栏
 
 ;; ---- 光标 ----
 ;; 竖线光标在 Emacs 里叫 bar，不叫 line。可选值：box / hollow / bar / hbar / nil
 ;; 想要粗一点用 (bar . N) 指定像素宽度，比如 (bar . 2)
 (setq-default cursor-type 'bar)     ; setq-default：cursor-type 是 buffer-local 的
 (blink-cursor-mode -1)              ; 关闭光标闪烁
-
-;; ---- 行号 ----
-;; display-line-numbers-type: relative = 相对当前行；t = 绝对行号；visual = 按屏幕行算
-(setq display-line-numbers-type 'relative)
-;; 按文件总行数预留左侧宽度，避免滚动到 9→10 行时整块文字左右抖动
-(setq display-line-numbers-width-start t)
-(global-display-line-numbers-mode 1)
 
 ;; ---- 高亮当前行（已关闭）----
 ;; 光标所在的那一行整行铺一层浅色底，方便定位。
