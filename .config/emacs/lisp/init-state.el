@@ -9,6 +9,8 @@
   (setq recentf-save-file
         (expand-file-name "recentf.eld" state-dir)
         tramp-persistency-file-name
-        (expand-file-name "tramp" state-dir)))
+        (expand-file-name "tramp" state-dir)
+        auto-save-list-file-prefix
+        (expand-file-name "auto-save-list/.saves-" state-dir)))
 
 (provide 'init-state)
