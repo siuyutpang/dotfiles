@@ -152,12 +152,12 @@ bindsym $mod+r mode "resize"
 
 # for_window [class="^.*"] border pixel 1
 
-# new_window 1pixel
-# default_border pixel 1
+# Use normal borders for tiled and floating windows.
+default_border normal
+default_floating_border normal
 
-# Remove the colored edge border; keep the tabbed title strip.
-default_border normal 0
-default_floating_border normal 0
+# Hide borders when a workspace has only one visible window.
+hide_edge_borders smart
 
 title_align center
 
