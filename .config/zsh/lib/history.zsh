@@ -4,7 +4,7 @@ export SAVEHIST=10000000    # history lines stored on disk
 export HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 export HISTORY_IGNORE="(pwd|exit|proxy\
 |poweroff|reboot\
-|..|cd|cd *|ll|ls|ls *\
+|..|cd|cd *|builtin cd *|ll|ls|ls *\
 |d|1|2|3|4|5|6|7|8|9\
 |r|yy|z|z *|v|v *\
 |mkcd *|cdtmp\
