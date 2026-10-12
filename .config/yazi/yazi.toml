@@ -28,6 +28,7 @@ open = [
 
 [open]
 rules = [
+	{ mime = "application/json", use = "edit" },
 	{ mime = "text/*", use = "edit" },
 	{ mime = "audio/*", use = "play-audio" },
 	{ mime = "video/*", use = "play" },
