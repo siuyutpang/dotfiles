@@ -85,3 +85,7 @@ lines = 24
 [window.padding]
 x = 0
 y = 0
+
+[[mouse.bindings]]
+mouse = "Right"
+action = "Paste"
