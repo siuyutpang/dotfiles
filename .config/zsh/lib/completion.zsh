@@ -1,17 +1,15 @@
-# fpath+=${XDG_CONFIG_HOME}/zsh/comp.d
+# Completion initialization is handled by znap.
 
 setopt complete_in_word
 setopt always_to_end
-
-# Basic auto/tab complete:
-# autoload -U compinit
+setopt menu_complete
 
 zstyle ':completion:*' menu select
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' matcher-list \
+    'm:{[:lower:]}={[:upper:]}' \
+    '+r:|[._-]=* r:|=*' \
+    '+l:|=*'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-
-# zmodload zsh/complist
-# compinit -C -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump-$ZSH_VERSION"
 
 # Include hidden files.
 setopt globdots
