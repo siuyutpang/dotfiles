@@ -9,11 +9,10 @@ export HISTORY_IGNORE="(pwd|exit|proxy\
 |r|yy|z|z *|v|v *\
 |mkcd *|cdtmp\
 |cp *|mv *|rm *\
-|./ *)"
+|./*)"
 
 setopt hist_verify
 setopt extended_history
-setopt hist_ignore_dups
 setopt hist_ignore_all_dups
 setopt hist_expire_dups_first
 setopt hist_ignore_space
