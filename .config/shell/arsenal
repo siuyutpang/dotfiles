@@ -152,14 +152,6 @@ function cdf() {
     cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')"
 }
 
-function google() {
-    echo "Googling: $@"
-    for term in $@; do
-        search="$search%20$term"
-    done
-    xdg-open "https://www.google.com/search?q=$search"
-}
-
 # cd to a parent directory.
 function ...() {
     new_dir="$(explode_path | tail -n +2 | fzf --prompt 'Parents > ' --preview 'tree -a -L 1 -C --dirsfirst {}')"
