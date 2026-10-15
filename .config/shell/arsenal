@@ -22,7 +22,10 @@ function cdtmp() {
 }
 
 function cddemo() {
-    cd $(fd -t d '^demo' /tmp | fzf --preview 'tree -a -L 1 -C --dirsfirst {}')
+    local dir
+    dir=$(fd -t d --max-depth 1 '^demo-' /tmp | fzf --preview 'tree -a -L 1 -C --dirsfirst {}') || return 0
+
+    [[ -n "$dir" ]] && builtin cd -- "$dir"
 }
 
 function fh() {
