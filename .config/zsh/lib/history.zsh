@@ -1,8 +1,8 @@
 # History in cache directory:
-export HISTSIZE=10000000    # history lines stored in memory
-export SAVEHIST=10000000    # history lines stored on disk
-export HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
-export HISTORY_IGNORE="(pwd|exit|proxy\
+HISTSIZE=10000000    # history lines stored in memory
+SAVEHIST=10000000    # history lines stored on disk
+HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
+HISTORY_IGNORE="(pwd|exit|proxy\
 |poweroff|reboot\
 |..|cd|cd *|builtin cd *|ll|ls|ls *\
 |d|1|2|3|4|5|6|7|8|9\
