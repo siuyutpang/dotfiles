@@ -1,0 +1,9 @@
+# i3blocks configuration
+#   配置查找顺序：~/.config/i3blocks/config -> ~/.i3blocks.conf -> /etc/i3blocks.conf
+#   修改后执行 i3-msg reload 生效
+
+separator=false
+
+[time]
+command=date '+%Y-%m-%d %H:%M'
+interval=10
