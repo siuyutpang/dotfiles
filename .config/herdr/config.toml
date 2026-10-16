@@ -1,0 +1,13 @@
+onboarding = false
+
+[keys]
+prefix = "ctrl+s"
+
+[theme]
+name = "terminal"
+
+[ui]
+sidebar_collapsed_mode = "hidden"
+pane_scrollbars = false
+status_indicators = "symbols"
+hide_tab_bar_when_single_tab = true
