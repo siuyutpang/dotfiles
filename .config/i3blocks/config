@@ -1,8 +1,15 @@
 # i3blocks configuration
 #   配置查找顺序：~/.config/i3blocks/config -> ~/.i3blocks.conf -> /etc/i3blocks.conf
-#   修改后执行 i3-msg reload 生效
+#   修改后执行 i3-msg restart，重启状态栏后生效
 
 separator=false
+
+[bandwidth]
+command=$HOME/.config/i3blocks/scripts/bandwidth
+interval=2
+INTERFACE=ens33
+INLABEL=⬇️
+OUTLABEL=⬆️
 
 [time]
 command=date '+%Y-%m-%d %H:%M'
