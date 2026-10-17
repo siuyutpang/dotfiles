@@ -75,4 +75,23 @@ for i = 1, 9 do
   })
 end
 
+-- Mouse
+config.mouse_bindings = {
+  {
+    event = { Up = { streak = 1, button = 'Left' } },
+    mods = 'NONE',
+    action = act.CompleteSelection('ClipboardAndPrimarySelection'),
+  },
+  {
+    event = { Down = { streak = 1, button = 'Right' } },
+    mods = 'NONE',
+    action = act.PasteFrom("Clipboard"),
+  },
+  {
+    event = { Up = { streak = 1, button = 'Left' } },
+    mods = 'CTRL',
+    action = act.OpenLinkAtMouseCursor,
+  },
+}
+
 return config
