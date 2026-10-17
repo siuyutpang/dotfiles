@@ -161,7 +161,8 @@ hide_edge_borders smart
 
 title_align center
 
-# gaps inner 13
+gaps inner 10
+smart_gaps on
 
 bar {
         # status_command i3status
