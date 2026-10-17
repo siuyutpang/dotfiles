@@ -10,15 +10,18 @@ config.inactive_pane_hsb = {
   saturation = 0.9,
   brightness = 0.8,
 }
-config.use_fancy_tab_bar = false
 
 config.text_background_opacity = 0.8
 config.window_background_opacity = 0.8
 config.window_decorations = "RESIZE"
 config.adjust_window_size_when_changing_font_size = false
 
-config.tab_bar_at_bottom = true
+-- tab bar
+config.tab_bar_at_bottom = false
+config.use_fancy_tab_bar = false
+config.show_tab_index_in_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
+config.show_new_tab_button_in_tab_bar = false
 
 config.default_cursor_style = 'SteadyBar'
 
