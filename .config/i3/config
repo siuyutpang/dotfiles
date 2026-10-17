@@ -178,3 +178,7 @@ bar {
                 inactive_workspace #32323200 #32323200 #5c5c5c
         }
 }
+
+# Quick terminal
+for_window [class="^quick-terminal$"] floating enable, border pixel 2, move scratchpad
+bindsym $mod+grave exec --no-startup-id ~/.config/i3/scripts/quick-terminal

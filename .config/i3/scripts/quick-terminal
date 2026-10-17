@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+# Toggle one persistent Kitty terminal on the focused i3 workspace.
+set -euo pipefail
+
+runtime_dir="${XDG_RUNTIME_DIR:-${TMPDIR:-/tmp}/quick-terminal-$UID}"
+mkdir -p -- "$runtime_dir"
+exec 9>"$runtime_dir/quick-terminal.lock"
+flock -n 9 || exit 0
+
+find_terminal() {
+    i3-msg -t get_tree | jq -r '
+        .. | objects | select(.type? == "workspace") | . as $workspace
+        | .. | objects
+        | select(.window_properties?.class? == "quick-terminal")
+        | [$workspace.name, (.id | tostring)] | @tsv
+    '
+}
+
+send_command() {
+    local reply
+    reply=$(i3-msg "$1")
+    if ! jq -e 'all(.[]; .success)' >/dev/null <<< "$reply"; then
+        printf '%s\n' "$reply" >&2
+        return 1
+    fi
+}
+
+terminal=$(find_terminal)
+if [[ -z "$terminal" ]]; then
+    # Close the inherited lock descriptor so Kitty does not hold the lock.
+    kitty --class quick-terminal --name quick-terminal --session none \
+        --directory "$HOME" >"$runtime_dir/quick-terminal.log" 2>&1 9>&- &
+    kitty_pid=$!
+    for ((attempt = 0; attempt < 100; attempt++)); do
+        terminal=$(find_terminal)
+        [[ -n "$terminal" ]] && break
+        if ! kill -0 "$kitty_pid" 2>/dev/null; then
+            cat "$runtime_dir/quick-terminal.log" >&2
+            exit 1
+        fi
+        sleep 0.05
+    done
+    if [[ -z "$terminal" ]]; then
+        printf 'Timed out waiting for Kitty; see %s/quick-terminal.log\n' "$runtime_dir" >&2
+        exit 1
+    fi
+fi
+
+IFS=$'\t' read -r terminal_workspace terminal_id <<< "$terminal"
+current_workspace=$(i3-msg -t get_workspaces | jq -r '.[] | select(.focused) | .name')
+criteria="[con_id=$terminal_id]"
+
+if [[ "$terminal_workspace" == "$current_workspace" ]]; then
+    send_command "$criteria move scratchpad"
+else
+    # Normalize the state when the terminal is on another workspace.
+    send_command "$criteria move scratchpad"
+    send_command "$criteria scratchpad show, resize set 100 ppt 50 ppt, move position 0 ppt 0 px"
+fi
