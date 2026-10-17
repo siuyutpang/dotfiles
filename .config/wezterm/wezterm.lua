@@ -2,16 +2,17 @@ local wezterm = require 'wezterm'
 local act = wezterm.action
 
 local config = {}
+
 config.color_scheme = 'Dracula (Official)'
 
 -- dim inactive panes
 config.inactive_pane_hsb = {
-  saturation = 0.5,
-  brightness = 0.5,
+  saturation = 0.9,
+  brightness = 0.8,
 }
 config.use_fancy_tab_bar = false
 
--- config.text_background_opacity = 0.3
+config.text_background_opacity = 0.8
 config.window_background_opacity = 0.8
 config.window_decorations = "RESIZE"
 config.adjust_window_size_when_changing_font_size = false
@@ -25,6 +26,7 @@ config.font = wezterm.font('monospace')
 config.font_size = 18
 
 config.use_cap_height_to_scale_fallback_fonts = false
+config.bold_brightens_ansi_colors = 'No'
 
 config.window_padding = {
   left = 0,
