@@ -14,20 +14,16 @@ config.use_fancy_tab_bar = false
 -- config.text_background_opacity = 0.3
 config.window_background_opacity = 0.8
 config.window_decorations = "RESIZE"
+config.adjust_window_size_when_changing_font_size = false
 
 config.tab_bar_at_bottom = true
 config.hide_tab_bar_if_only_one_tab = true
 
 config.default_cursor_style = 'SteadyBar'
 
--- config.font = wezterm.font("Inconsolata-Regular", { weight = "Regular" })
-config.font = wezterm.font_with_fallback({
-  family = "Monaco",
-  family = "Comic Code Ligatures",
-  { family = "JetbrainsMono Nerd Font", weight = "Regular" },
-  family = "LXGW WenKai Mono",
-})
-config.font_size = 19
+config.font = wezterm.font('monospace')
+config.font_size = 18
+
 config.use_cap_height_to_scale_fallback_fonts = false
 
 config.window_padding = {
