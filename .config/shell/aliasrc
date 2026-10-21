@@ -75,7 +75,7 @@ alias \
 # terminal specific
 if [ "$TERM" = "xterm-kitty" ]; then
     alias \
-        ssh="kitty +kitten ssh" \
-        icat="kitty +kitten icat" \
-        rg="kitty +kitten hyperlinked_grep"
+        ssh="kitten ssh" \
+        icat="kitten icat" \
+        rg="kitten hyperlinked_grep"
 fi
