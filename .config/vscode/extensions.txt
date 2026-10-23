@@ -1,0 +1,12 @@
+golang.go
+llvm-vs-code-extensions.vscode-clangd
+ms-python.python
+ms-python.vscode-pylance
+ms-vscode.cpptools
+naumovs.color-highlight
+pkief.material-icon-theme
+redhat.java
+usernamehw.errorlens
+vscodevim.vim
+xaver.clang-format
+zhuangtongfa.material-theme
