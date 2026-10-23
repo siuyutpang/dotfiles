@@ -3,9 +3,10 @@
      *          VS Code built-in config         *
      ********************************************/
     "workbench.startupEditor": "none",
+    "workbench.editor.useModal": "off",
     "workbench.editor.enablePreview": true,
+    "workbench.colorTheme": "One Dark Pro Flat",
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "One Dark Pro",
     "workbench.colorCustomizations": {
         "[One Dark Pro]": {
             // "editorCursor.foreground": "#b8b8b896",
@@ -40,7 +41,7 @@
         "terminal.ansiBrightWhite": "#ffffff",
         "terminal.ansiBrightYellow": "#f1fa8c",
         "terminal.selectionBackground": "#44475a",
-        "terminalCursor.foreground": "#bbbbbb"
+        "terminalCursor.foreground": "#bbbbbb",
     },
 
     "editor.cursorStyle": "line",
@@ -53,8 +54,8 @@
     "editor.scrollbar.verticalScrollbarSize": 7,
     "editor.scrollbar.horizontal": "visible",
     "editor.scrollbar.horizontalScrollbarSize": 5,
-    "editor.fontFamily": "'Inconsolata-Regular', 'Fantasque Sans Mono', 'Comic Code Ligatures', 'LXGW WenKai Mono', 'monospace'",
-    "editor.fontSize": 25,
+    "editor.fontFamily": "Iosevka, 'LXGW WenKai Mono', monospace",
+    "editor.fontSize": 20,
     "editor.fontLigatures": true,
     "editor.fontWeight": "normal",
     "editor.formatOnPaste": false,
@@ -71,37 +72,45 @@
     "editor.guides.bracketPairsHorizontal": false,
     "editor.guides.highlightActiveBracketPair": false,
 
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+
     "editor.quickSuggestions": {
         "other": "on",
         "comments": "off",
-        "strings": "off"
+        "strings": "off",
     },
-	"editor.suggest.insertMode": "insert",
+    "editor.suggest.insertMode": "insert",
     "editor.inlayHints.enabled": "off",
     "editor.inlineSuggest.enabled": true,
-	"editor.snippetSuggestions": "inline",
-	"editor.wordBasedSuggestions": "off",
-	"editor.suggest.matchOnWordStartOnly": false,
+    "editor.snippetSuggestions": "inline",
+    "editor.wordBasedSuggestions": "off",
+    "editor.suggest.matchOnWordStartOnly": false,
     "editor.tabCompletion": "off",
-	"editor.suggest.snippetsPreventQuickSuggestions": true,
+    "editor.suggest.snippetsPreventQuickSuggestions": true,
     "emmet.triggerExpansionOnTab": true,
 
-    "terminal.integrated.fontFamily":  "Monaco, 'JetbrainsMono Nerd Font', 'LXGW WenKai Mono'",
+    "editor.wordWrap": "on",
+    "editor.wordWrapColumn": 120,
+    "diffEditor.hideUnchangedRegions.enabled": true,
+
+    "terminal.integrated.fontFamily": "Iosevka, 'LXGW WenKai Mono', monospace",
     "terminal.integrated.fontSize": 18,
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.cursorBlinking": false,
     "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.cursorStyleInactive": "outline",
     "terminal.integrated.cursorWidth": 2,
     "terminal.integrated.fontWeightBold": "normal",
     "terminal.integrated.gpuAcceleration": "off",
     "terminal.integrated.profiles.linux": {
         "zsh": {
             "path": "/usr/bin/zsh",
-            "color": "terminal.ansiMagenta"
-        }
+            "color": "terminal.ansiMagenta",
+        },
     },
     "terminal.integrated.defaultProfile.linux": "zsh",
-	"terminal.integrated.showExitAlert": true,
+    "terminal.integrated.inheritEnv": false,
+    "terminal.integrated.showExitAlert": true,
     "terminal.integrated.shellIntegration.enabled": false,
     "terminal.integrated.shellIntegration.decorationsEnabled": "never",
     "terminal.integrated.enablePersistentSessions": false,
@@ -118,6 +127,7 @@
 
     "zenMode.centerLayout": false,
     "zenMode.hideLineNumbers": false,
+    "zenMode.showTabs": "none",
 
     "security.workspace.trust.startupPrompt": "never",
     "security.workspace.trust.enabled": false,
@@ -158,6 +168,10 @@
     "editor.lineNumbers": "relative",
     "editor.cursorSurroundingLines": 5,
 
+    // make swapped Escape and Caps Lock with setxkbmap works in vscode
+    "keyboard.dispatch": "keyCode",
+
+    // disable im when exiting insert mode, copy from fcitx5 in archwiki
     "vim.autoSwitchInputMethod.enable": true,
     "vim.autoSwitchInputMethod.defaultIM": "1",
     "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/bin/fcitx5-remote",
@@ -170,119 +184,125 @@
     "vim.useSystemClipboard": true,
     "vim.leader": "<space>",
     "vim.startInInsertMode": false,
+
+    // to improve performance
     "extensions.experimental.affinity": {
-        "vscodevim.vim": 1
+        "vscodevim.vim": 1,
     },
 
     "vim.normalModeKeyBindings": [
         {
             "before": ["<tab>"],
-            "commands": ["workbench.action.nextEditor"]
+            "commands": ["workbench.action.nextEditor"],
         },
         {
             "before": ["<S-tab>"],
-            "commands": ["workbench.action.previousEditor"]
+            "commands": ["workbench.action.previousEditor"],
         },
         {
             "before": ["g", "D"],
-            "commands": ["editor.action.goToTypeDefinition"]
+            "commands": ["editor.action.goToTypeDefinition"],
         },
         {
             "before": ["g", "p"],
-            "commands": ["editor.action.peekDefinition", "togglePeekWidgetFocus"]
+            "commands": ["editor.action.peekDefinition", "togglePeekWidgetFocus"],
         },
         {
             "before": ["g", "P"],
-            "commands": ["editor.action.peekTypeDefinition", "togglePeekWidgetFocus"]
+            "commands": ["editor.action.peekTypeDefinition", "togglePeekWidgetFocus"],
         },
         {
             "before": ["g", "r"],
-            "commands": ["editor.action.referenceSearch.trigger", "togglePeekWidgetFocus"]
+            "commands": ["editor.action.referenceSearch.trigger", "togglePeekWidgetFocus"],
         },
         {
             "before": ["g", "m"],
-            "commands": ["workbench.action.gotoSymbol"]
+            "commands": ["workbench.action.gotoSymbol"],
         },
         {
             "before": ["t", "p"],
-            "commands": ["togglePeekWidgetFocus"]
+            "commands": ["togglePeekWidgetFocus"],
         },
         {
             "before": ["<leader>", "e"],
-            "commands": ["workbench.view.explorer"]
+            "commands": ["workbench.view.explorer"],
         },
         {
             "before": ["]", "d"],
-            "commands": ["editor.action.marker.next"]
+            "commands": ["editor.action.marker.next"],
         },
         {
             "before": ["[", "d"],
-            "commands": ["editor.action.marker.prev"]
+            "commands": ["editor.action.marker.prev"],
         },
         {
             "before": ["u"],
-            "commands": ["undo"]
+            "commands": ["undo"],
         },
         {
             "before": ["C-r"],
-            "commands": ["redo"]
+            "commands": ["redo"],
         },
     ],
 
     "vim.normalModeKeyBindingsNonRecursive": [
         {
+            "before": ["Y"],
+            "after": ["y", "$"],
+        },
+        {
             "before": ["/"],
-            "commands": ["actions.find"]
+            "commands": ["actions.find"],
         },
         {
             "before": ["<leader>", "c"],
-            "commands": ["workbench.action.closeActiveEditor"]
-        },
-        {
-            "before": ["<leader>", "r"],
-            "commands": ["saveAll", "code-runner.run"]
+            "commands": ["workbench.action.closeActiveEditor"],
         },
         {
             "before": ["<leader>", "w"],
-            "commands": ["saveAll"]
+            "commands": ["saveAll"],
         },
         {
             "before": ["<leader>", "s", "v"],
-            "commands": ["workbench.action.splitEditor"]
+            "commands": ["workbench.action.splitEditor"],
         },
         {
             "before": ["<leader>", "s", "h"],
-            "commands": ["workbench.action.splitEditorDown"]
+            "commands": ["workbench.action.splitEditorDown"],
         },
         {
             "before": ["<leader>", "z"],
-            "commands": ["workbench.action.toggleZenMode"]
+            "commands": ["workbench.action.toggleZenMode"],
         },
         {
             "before": ["<leader>", "f"],
-            "commands": ["workbench.action.toggleEditorWidths"]
+            "commands": ["workbench.action.toggleEditorWidths"],
         },
         {
             "before": ["<leader>", "q"],
-            "commands": ["workbench.action.closeEditorsInOtherGroups"]
+            "commands": ["workbench.action.closeEditorsInOtherGroups"],
         },
-     ],
+        {
+            "before": ["K"],
+            "commands": ["editor.action.showDefinitionPreviewHover"],
+        },
+    ],
 
     "vim.visualModeKeyBindings": [
         {
             "before": ["$"],
-            "after": ["g", "_"]
+            "after": ["g", "_"],
         },
         {
             "before": ["p"],
-            "after": ["\"", "_", "d", "P"]
+            "after": ["\"", "_", "d", "P"],
         },
     ],
 
     "vim.insertModeKeyBindings": [
         {
             "before": ["j", "j"],
-            "after": ["<Esc>"]
+            "after": ["<Esc>"],
         },
         {
             "before": ["<C-v>"],
@@ -291,12 +311,12 @@
         {
             "before": ["<C-a>"],
             "commands": ["editor.action.selectAll"],
-            "after": ["<Esc>"]
+            "after": ["<Esc>"],
         },
         {
             "before": ["<C-s>"],
             "commands": ["saveAll"],
-            "after": ["<Esc>"]
+            "after": ["<Esc>"],
         },
     ],
 
@@ -314,25 +334,23 @@
      *              PL related config           *
      ********************************************/
     "C_Cpp.autocompleteAddParentheses": true,
-	"C_Cpp.formatting": "clangFormat",
+    "C_Cpp.formatting": "clangFormat",
     "C_Cpp.clang_format_style": "{ BasedOnStyle: Google, IndentWidth: 4, AlignConsecutiveDeclarations: true }",
     "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, PointerAlignment: Right }",
     "[c]": {
         "editor.formatOnSave": false,
-        "editor.defaultFormatter": "xaver.clang-format"
+        "editor.defaultFormatter": "xaver.clang-format",
     },
     "[cpp]": {
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
     },
     "C_Cpp.intelliSenseEngine": "disabled",
     "clang-format.style": "{ BasedOnStyle: Google, IndentWidth: 4, AlignConsecutiveDeclarations: true }",
-    
 
     "python.languageServer": "Pylance",
     "python.analysis.autoImportCompletions": true,
-	"python.analysis.completeFunctionParens": true,
+    "python.analysis.completeFunctionParens": true,
     "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": false,
     },
 
@@ -340,34 +358,19 @@
     "[java]": {
         "editor.formatOnSave": false,
         "editor.formatOnPaste": true,
-        "editor.defaultFormatter": "redhat.java"
+        "editor.defaultFormatter": "redhat.java",
     },
-    "java.debug.settings.console": "internalConsole",
-    "java.debug.settings.enableRunDebugCodeLens": false,
 
-    "code-runner.executorMap": {
-        "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
-        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "python": "python -u",
-        "go": "go run",
-    },
-    "code-runner.clearPreviousOutput": true,
+    "js/ts.suggest.completeFunctionCalls": true,
+    "js/ts.preferences.quoteStyle": "single",
 
     /********************************************
      *              others config               *
      ********************************************/
-    "liveServer.settings.donotShowInfoMsg": true,
-    "markdown-preview-enhanced.codeBlockTheme": "atom-dark.css",
-    "markdown-preview-enhanced.previewTheme": "one-dark.css",
     "redhat.telemetry.enabled": false,
-    "gitlens.hovers.currentLine.over": "line",
-    "gitlens.currentLine.enabled": false,
-    "gitlens.codeLens.enabled": false,
     "color-highlight.markerType": "dot-before",
-    "color-highlight.languages": [
-        "*",
-        "!java",
-    ],
-    "terminal.integrated.inheritEnv": false,
+    "color-highlight.languages": ["*", "!java"],
+    "errorLens.enabledDiagnosticLevels": ["error", "warning", "info", "hint"],
+    "errorLens.messageEnabled": true,
+    "chat.disableAIFeatures": true,
 }
