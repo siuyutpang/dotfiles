@@ -1,7 +1,6 @@
 {
-    /********************************************
-     *          VS Code built-in config         *
-     ********************************************/
+    // === VS Code ===
+    // Appearance and Startup
     "workbench.startupEditor": "none",
     "workbench.editor.useModal": "off",
     "workbench.editor.enablePreview": true,
@@ -44,6 +43,7 @@
         "terminalCursor.foreground": "#bbbbbb",
     },
 
+    // Editor
     "editor.cursorStyle": "line",
     "editor.cursorBlinking": "solid",
     "editor.smoothScrolling": true,
@@ -74,6 +74,7 @@
 
     "editor.unicodeHighlight.ambiguousCharacters": false,
 
+    // Completion
     "editor.quickSuggestions": {
         "other": "on",
         "comments": "off",
@@ -89,10 +90,12 @@
     "editor.suggest.snippetsPreventQuickSuggestions": true,
     "emmet.triggerExpansionOnTab": true,
 
+    // Wrapping and Diffs
     "editor.wordWrap": "on",
     "editor.wordWrapColumn": 120,
     "diffEditor.hideUnchangedRegions.enabled": true,
 
+    // Terminal
     "terminal.integrated.fontFamily": "Iosevka, 'LXGW WenKai Mono', monospace",
     "terminal.integrated.fontSize": 18,
     "terminal.integrated.copyOnSelection": true,
@@ -116,33 +119,37 @@
     "terminal.integrated.enablePersistentSessions": false,
     "terminal.integrated.persistentSessionReviveProcess": "never",
 
+    // Window
     "window.zoomLevel": 0.6,
     "window.restoreWindows": "none",
     "window.titleBarStyle": "native",
     "window.menuBarVisibility": "toggle",
 
+    // Explorer
     "explorer.confirmDelete": false,
     "explorer.compactFolders": false,
     "explorer.confirmDragAndDrop": false,
 
+    // Zen Mode
     "zenMode.centerLayout": false,
     "zenMode.hideLineNumbers": false,
     "zenMode.showTabs": "none",
 
+    // Workspace Trust
     "security.workspace.trust.startupPrompt": "never",
     "security.workspace.trust.enabled": false,
     "security.workspace.trust.banner": "never",
     "security.workspace.trust.emptyWindow": false,
 
+    // Updates and Other Preferences
     "update.mode": "manual",
     "update.showReleaseNotes": false,
     "extensions.ignoreRecommendations": true,
     "outline.showVariables": false,
     "telemetry.telemetryLevel": "off",
 
-    /********************************************
-     *                 Vim config               *
-     ********************************************/
+    // === Vim ===
+    // Appearance
     "vim.statusBarColorControl": false,
     "vim.statusBarColors.normal": ["#98c379", "#2c323b"],
     "vim.statusBarColors.insert": ["#70c0ba", "#2c323b"],
@@ -168,15 +175,17 @@
     "editor.lineNumbers": "relative",
     "editor.cursorSurroundingLines": 5,
 
-    // make swapped Escape and Caps Lock with setxkbmap works in vscode
+    // Support the Escape/Caps Lock swap configured with setxkbmap.
     "keyboard.dispatch": "keyCode",
 
-    // disable im when exiting insert mode, copy from fcitx5 in archwiki
+    // Switch to the default input method when leaving Insert mode.
+    // Source: ArchWiki, Fcitx5
     "vim.autoSwitchInputMethod.enable": true,
     "vim.autoSwitchInputMethod.defaultIM": "1",
     "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/bin/fcitx5-remote",
     "vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/fcitx5-remote -t {im}",
 
+    // Behavior
     "vim.surround": true,
     "vim.easymotion": true,
     "vim.useCtrlKeys": true,
@@ -185,11 +194,12 @@
     "vim.leader": "<space>",
     "vim.startInInsertMode": false,
 
-    // to improve performance
+    // Extension host affinity for Vim responsiveness.
     "extensions.experimental.affinity": {
         "vscodevim.vim": 1,
     },
 
+    // Keybindings
     "vim.normalModeKeyBindings": [
         {
             "before": ["<tab>"],
@@ -330,9 +340,8 @@
         "<C-s>": true,
     },
 
-    /********************************************
-     *              PL related config           *
-     ********************************************/
+    // === Languages ===
+    // C / C++
     "C_Cpp.autocompleteAddParentheses": true,
     "C_Cpp.formatting": "clangFormat",
     "C_Cpp.clang_format_style": "{ BasedOnStyle: Google, IndentWidth: 4, AlignConsecutiveDeclarations: true }",
@@ -347,6 +356,7 @@
     "C_Cpp.intelliSenseEngine": "disabled",
     "clang-format.style": "{ BasedOnStyle: Google, IndentWidth: 4, AlignConsecutiveDeclarations: true }",
 
+    // Python
     "python.languageServer": "Pylance",
     "python.analysis.autoImportCompletions": true,
     "python.analysis.completeFunctionParens": true,
@@ -354,6 +364,7 @@
         "editor.formatOnSave": false,
     },
 
+    // Java
     "java.inlayHints.parameterNames.enabled": "none",
     "[java]": {
         "editor.formatOnSave": false,
@@ -361,12 +372,11 @@
         "editor.defaultFormatter": "redhat.java",
     },
 
+    // JavaScript / TypeScript
     "js/ts.suggest.completeFunctionCalls": true,
     "js/ts.preferences.quoteStyle": "single",
 
-    /********************************************
-     *              others config               *
-     ********************************************/
+    // === Miscellaneous ===
     "redhat.telemetry.enabled": false,
     "color-highlight.markerType": "dot-before",
     "color-highlight.languages": ["*", "!java"],
