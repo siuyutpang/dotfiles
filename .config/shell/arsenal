@@ -1,5 +1,16 @@
 #!/bin/sh
 
+function add_paths() {
+    local dir
+    for dir in "$@"; do
+        [ -d "$dir" ] || continue
+        case ":$PATH:" in
+            *:"$dir":*) ;;
+            *) PATH="$dir${PATH:+:$PATH}" ;;
+        esac
+    done
+}
+
 function mkcd() {
     mkdir -p $@ && cd ${@:$#}
 }

@@ -20,11 +20,15 @@ export FZF_CTRL_R_OPTS="--min-height=8 --preview 'echo {}' --preview-window up:3
 export FZF_ALT_C_OPTS="--preview 'tree -C --dirsfirst {}'"
 
 # node
-export PATH="${XDG_DATA_HOME}/npm/bin:$PATH"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 
 # asdf
 export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"
 export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME}/asdf/asdfrc"
 export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".config/asdf/tool-versions"
-export PATH="$ASDF_DATA_DIR/shims:$PATH"
+
+# PATH: prepend in order; later entries have higher priority.
+add_paths \
+    "${XDG_DATA_HOME}/npm/bin" \
+    "$ASDF_DATA_DIR/shims"
+export PATH
