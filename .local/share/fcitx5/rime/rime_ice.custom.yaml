@@ -1,0 +1,4 @@
+# 让 \ 键（顿号）直接上屏，不再弹出「全角/半角」候选列表
+patch:
+  "punctuator/full_shape/\\": { commit: '、' }
+  "punctuator/half_shape/\\": { commit: '、' }
