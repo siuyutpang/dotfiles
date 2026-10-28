@@ -15,6 +15,7 @@ $cmd_duration\
 $battery"""
 
 add_newline = false
+command_timeout = 2000
 
 [line_break]
 disabled = true
