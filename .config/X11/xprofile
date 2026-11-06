@@ -1,12 +1,17 @@
 #!/bin/sh
 
 xrandr -s 1920x1080 &
+# xrandr --dpi 96
 setbg &
 vmware-user-suid-wrapper &
 setxkbmap -option caps:escape &
+dolphin --daemon &
+xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/X11/xresources & xrdbpid=$!
 
-autostart="picom fcitx5 sxhkd unclutter slstatus"
+autostart="mpd picom fcitx5 sxhkd unclutter copyq flameshot"
 
 for program in $autostart; do
 	pidof -s "$program" || "$program" &
 done >/dev/null 2>&1
+
+[ -n "$xrdbpid" ] && wait "$xrdbpid"
