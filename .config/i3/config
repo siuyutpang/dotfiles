@@ -2,19 +2,7 @@ set $mod Mod4
 
 font pango:Iosevka,LXGW WenKai Mono 9
 
-# exec_always --no-startup-id xrandr -s 1920x1080
-# exec_always --no-startup-id setbg
-# exec_always --no-startup-id setxkbmap -option caps:escape
-
-# exec --no-startup-id picom
-# exec --no-startup-id mpd
-# exec --no-startup-id sxhkd
-# exec --no-startup-id copyq
-# exec --no-startup-id fcitx5
-# exec --no-startup-id unclutter
-# exec --no-startup-id dolphin --daemon
-# exec --no-startup-id vmware-user-suid-wrapper
-# exec --no-startup-id xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/X11/xresources
+# exec --no-startup-id opencode serve --service
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
