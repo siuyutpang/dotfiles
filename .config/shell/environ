@@ -1,6 +1,7 @@
 #!/bin/sh
 
 export GPG_TTY=$(tty)
+export RCLONE_PASSWORD_COMMAND="/usr/bin/pass tools/rclone"
 
 export SUDO_PROMPT="[sudo] password for $(whoami): 🔐 "
 
