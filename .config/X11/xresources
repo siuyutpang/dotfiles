@@ -4,3 +4,11 @@
 
 Xcursor.theme: macOS-BigSur
 Xcursor.size: 16
+
+Sxiv.*.background: #282a36
+Sxiv.*.foreground: #f8f8f2
+Sxiv.font: Sarasa Mono SC:size=10
+
+Nsxiv.window.background: #282a36
+Nsxiv.window.foreground: #f8f8f2
+Nsxiv.bar.font: Sarasa Mono SC:size=10
