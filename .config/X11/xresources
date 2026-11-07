@@ -1,1 +1,3 @@
-Xft.dpi: 120
+# vim: set filetype=xdefaults:
+
+*.font: Sarasa UI SC:size=13
