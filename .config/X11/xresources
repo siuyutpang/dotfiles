@@ -1,3 +1,6 @@
 # vim: set filetype=xdefaults:
 
 *.font: Sarasa UI SC:size=13
+
+Xcursor.theme: macOS-BigSur
+Xcursor.size: 16
