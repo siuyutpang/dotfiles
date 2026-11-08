@@ -6,4 +6,6 @@ function zvm_after_init() {
     bindkey -M viins '^N' history-beginning-search-forward-end
     bindkey -M viins '^S' self-insert
     bindkey -M viins '^W' vi-backward-kill-word
+    bindkey -M viins '^U' backward-kill-line
+    bindkey -M viins '^Y' yank
 }
