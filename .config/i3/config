@@ -15,6 +15,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Allow dragging tiled windows by modifier or titlebar.
+tiling_drag modifier titlebar
+
 bindsym $mod+Return exec kitty
 bindsym $mod+q kill
 
@@ -148,7 +151,7 @@ default_floating_border normal
 # Hide borders when a workspace has only one visible window.
 hide_edge_borders smart
 
-title_align center
+title_align left
 
 gaps inner 10
 smart_gaps on
