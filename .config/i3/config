@@ -1,6 +1,6 @@
 set $mod Mod4
 
-font pango:Iosevka,LXGW WenKai Mono 9
+font pango:Iosevka,LXGW WenKai Screen 9
 
 # polkit agent (pkexec)
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
