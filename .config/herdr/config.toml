@@ -2,6 +2,9 @@ onboarding = false
 
 [keys]
 prefix = "ctrl+s"
+previous_tab = ["prefix+p", "prefix+comma"]
+next_tab = ["prefix+n", "prefix+period"]
+last_pane = "prefix+slash"
 
 [theme]
 name = "terminal"
