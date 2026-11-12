@@ -17,11 +17,11 @@ multi_line = False
 destructive_warning = True
 
 # log_file location.
-log_file = ~/.config/mycli/mycli.log
+log_file = ~/.cache/mycli/mycli.log
 
 # Default log level. Possible values: "CRITICAL", "ERROR", "WARNING", "INFO"
 # and "DEBUG". "NONE" disables logging.
-log_level = INFO
+log_level = NONE
 
 # Log every query and its results to a file. Enable this by uncommenting the
 # line below.
@@ -74,7 +74,7 @@ prompt = '\t \u@\h:\d> '
 prompt_continuation = '->'
 
 # Skip intro info on startup and outro info on exit
-less_chatty = False
+less_chatty = True
 
 # Use alias from --login-path instead of host name in prompt
 login_path_as_host = False
@@ -87,7 +87,7 @@ auto_vertical_output = False
 keyword_casing = auto
 
 # disabled pager on startup
-enable_pager = False
+enable_pager = True
 
 # Custom colors for the completion menu, toolbar, etc.
 [colors]
