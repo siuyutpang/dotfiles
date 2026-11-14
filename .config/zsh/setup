@@ -10,4 +10,3 @@ source <(zoxide init zsh)
 source <(direnv hook zsh)
 
 source <(starship init zsh --print-full-init)
-znap prompt

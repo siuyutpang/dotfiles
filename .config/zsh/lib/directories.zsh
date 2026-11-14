@@ -19,4 +19,5 @@ function d () {
     dirs -v | head -n 10
   fi
 }
-compdef _dirs d
+# Register after zinit's deferred completion initialization.
+zicompdef _dirs d

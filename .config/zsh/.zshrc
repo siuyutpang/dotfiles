@@ -1,9 +1,14 @@
 # Sy's config for the Zoomer Shell
 
-# 关掉 znap 的后台 auto-compile（会往配置目录里生成 *.zwc，对本配置零收益）
-zstyle ':znap:*' auto-compile no
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d "$ZINIT_HOME/.git" ] && mkdir -p "$(dirname "$ZINIT_HOME")" && \
+    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 
-source ~/.local/share/znap/zsh-snap/znap.zsh
+declare -A ZINIT
+ZINIT[ZCOMPDUMP_PATH]="${XDG_CACHE_HOME:-${HOME}/.cache}/zsh/zcompdump-$ZSH_VERSION"
+# Leave zi available for zoxide.
+ZINIT[NO_ALIASES]=1
+source "$ZINIT_HOME/zinit.zsh"
 
 # Load all of the lib files in $ZDOTDIR/lib that end in .zsh
 if [ -d ~/.config/zsh/lib ]; then
@@ -27,9 +32,21 @@ fi
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/environ" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/environ"
 
 # Load awesome zsh plugins
-znap source jeffreytse/zsh-vi-mode
-znap source zsh-users/zsh-autosuggestions
-znap source zdharma-continuum/fast-syntax-highlighting
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
+
+zinit ice wait lucid atload'_zsh_autosuggest_start'
+zinit light zsh-users/zsh-autosuggestions
+
+zinit ice wait lucid blockf atpull'zinit creinstall -q .'
+zinit light zsh-users/zsh-completions
+
+zinit ice wait'0b' lucid
+zinit light zdharma-continuum/fast-syntax-highlighting
+
+zinit ice id-as'zinit/compinit' lucid as'null' wait'0c' \
+    atload'zicompinit; zicdreplay'
+zinit light zdharma-continuum/null
 
 # Load zsh-specific stuff
 source ~/.config/zsh/setup

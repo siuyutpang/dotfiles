@@ -1,4 +1,4 @@
-# Completion initialization is handled by znap.
+# Completion initialization is deferred by zinit.
 
 setopt complete_in_word
 setopt always_to_end
