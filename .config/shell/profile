@@ -18,7 +18,6 @@ export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export INPUTRC="$XDG_CONFIG_HOME/shell/inputrc"
 
 export LESSHISTFILE="-"
-export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"               # This line will break some DMs.
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export MYCLI_HISTFILE="${XDG_CACHE_HOME}/mycli/history"
